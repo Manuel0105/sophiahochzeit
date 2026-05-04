@@ -1591,6 +1591,14 @@ section.reveal {
     /* Layout-Grids einspaltig */
     .location-grid { grid-template-columns: 1fr; }
     .ablauf-grid { flex-direction: column; gap: 1rem; }
+    .ablauf-card {
+      width: 100%;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
     .ablauf-arrow { transform: rotate(90deg); font-size: 2rem; }
     .info-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
@@ -1669,6 +1677,10 @@ section.reveal {
 
     /* Wetter-Widget mobil */
     .weather-widget { padding: 1rem 1.5rem; }
+
+    /* Maps-Links untereinander statt nebeneinander */
+    .maps-links a { display: block; }
+    .maps-links .maps-sep { display: none; }
   }
 
   @media (max-width: 480px) {
@@ -1709,7 +1721,6 @@ section.reveal {
 
   <!-- Versteckte Liebesbriefe (Easter Eggs) -->
   <span class="hidden-heart" data-note="1" style="top: 22%; left: 6%;">♡</span>
-  <span class="hidden-heart" data-note="2" style="top: 75%; right: 8%;">♡</span>
   <div class="hero-eyebrow">Wir sagen Ja</div>
   <h1 class="hero-names">
     Sophia<br>
@@ -1755,7 +1766,7 @@ section.reveal {
     <div class="weather-desc" id="weatherDesc">Lade Vorhersage...</div>
   </div>
 
-  <div class="hero-scroll">↓ Mehr erfahren</div>
+  <div class="hero-scroll" style="display: none;">↓ Mehr erfahren</div>
 </section>
 
 <!-- Liebesbrief-Modal -->
@@ -1830,9 +1841,9 @@ section.reveal {
       </div>
       <div class="info-row">
         <span class="info-label">Maps</span>
-        <span>
+        <span class="maps-links">
           <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x4797cc3aa26462cb:0x517843cf3234a91e" target="_blank" rel="noopener">Google Maps ↗</a>
-          &nbsp;·&nbsp;
+          <span class="maps-sep">&nbsp;·&nbsp;</span>
           <a href="https://maps.apple.com/?q=Standesamt+Mannheim&address=K7+2,+68159+Mannheim" target="_blank" rel="noopener">Apple Karten ↗</a>
         </span>
       </div>
@@ -1871,9 +1882,9 @@ section.reveal {
       </div>
       <div class="info-row">
         <span class="info-label">Maps</span>
-        <span>
+        <span class="maps-links">
           <a href="https://www.google.com/maps/search/?api=1&query=Silcherweg+15+Hemsbach" target="_blank" rel="noopener">Google Maps ↗</a>
-          &nbsp;·&nbsp;
+          <span class="maps-sep">&nbsp;·&nbsp;</span>
           <a href="https://maps.apple.com/?q=Silcherweg+15,+69502+Hemsbach&address=Silcherweg+15,+69502+Hemsbach" target="_blank" rel="noopener">Apple Karten ↗</a>
         </span>
       </div>
@@ -1906,7 +1917,7 @@ section.reveal {
       </p>
       <p>
         <strong style="font-style: normal; color: var(--terracotta-deep);">Bitte verzichtet auf:</strong>
-        Jeans, Sneaker im Sportlook sowie auf die Farben <em>Weiß</em> (außer als Hemd bei den Männern), <em>Schwarz</em>, <em>helles Rosa</em> und <em>helles Beige</em>.
+        Jeans und Sneaker im Sportlook. Auch bei den Farben kleine Bitten: Die Frauen sollten auf <em>Weiß</em> und <em>helles Rosa</em> verzichten, die Männer bitte keinen <em>beigen Anzug</em> oder beige Hose — und für alle gilt: bitte kein <em>Schwarz</em>.
       </p>
     </div>
   </div>
@@ -1916,6 +1927,7 @@ section.reveal {
 
 <!-- ═══════════════════ FOTO-HINWEIS ═══════════════════ -->
 <section id="wichtiges" class="reveal">
+  <span class="hidden-heart" data-note="2" style="top: 35%; left: 5%;">♡</span>
   <div class="section-label">Gut zu wissen</div>
   <h2 class="section-title">Ein <em>Hinweis</em></h2>
 
@@ -1940,7 +1952,7 @@ section.reveal {
   <div class="rsvp">
     <p class="rsvp-intro">
       Damit wir gut planen können — vor allem fürs Grillen — würden wir uns freuen, wenn ihr uns kurz Bescheid gebt, ob ihr nach der Trauung dabei seid. <br><br>
-      <strong>Eure Anwesenheit ist das schönste Geschenk für uns.</strong> Bitte fühlt euch <em>auf keinen Fall</em> dazu gezwungen, etwas mitzubringen. Falls ihr trotzdem gerne etwas beisteuern möchtet: Schreibt es einfach unten rein — wir melden uns dann bei euch zur Absprache, damit wir am Ende nicht fünf Nudelsalate haben ♡
+      <strong>Wir kümmern uns ums Essen — ihr müsst nichts beisteuern.</strong> Falls ihr aber Lust habt, einen Salat, ein Dessert oder eine andere Beilage zum Buffet beizutragen: Schreibt es einfach unten rein. Wir melden uns dann bei euch zur Absprache, damit wir am Ende nicht fünf Nudelsalate haben ♡
     </p>
 
     <form id="rsvpForm">
@@ -1980,8 +1992,8 @@ section.reveal {
       </div>
 
       <div class="rsvp-field">
-        <label for="rsvp-mitbringen">Falls ihr etwas mitbringen möchtet (kein Muss!)</label>
-        <input type="text" id="rsvp-mitbringen" name="mitbringen" placeholder="z.B. Idee für einen Salat, Dessert... wir sprechen das ab">
+        <label for="rsvp-mitbringen">Möchtet ihr etwas zum Buffet beisteuern?</label>
+        <input type="text" id="rsvp-mitbringen" name="mitbringen" placeholder="z.B. Salat, Dessert, eine Beilage... wir sprechen das ab">
       </div>
 
       <div class="rsvp-field">
@@ -2450,7 +2462,7 @@ section.reveal {
     2: { title: 'Übrigens', text: 'Falls dir die Seite gefällt: Sophia hat sich da ordentlich Mühe gegeben. Rene hat... moralisch unterstützt.' },
     3: { title: 'Trauzeugen-Drama', text: 'Unsere Katzen wollten unbedingt Trauzeugen sein. Leider sind sie im Standesamt nicht erwünscht. Sie haben sich noch nicht ganz davon erholt.' },
     4: { title: 'Ehrlich gesagt', text: 'Den 18. Mai haben wir gewählt, weil... naja, weil das Standesamt da frei hatte. So romantisch ist das manchmal.' },
-    5: { title: 'Falls ihr euch fragt', text: 'Falls ihr euch fragt, wer von uns die Hochzeit mehr wollte — keine Antwort. Aber Sophia hatte das Pinterest-Board schneller offen.' },
+    5: { title: 'Falls ihr euch fragt', text: 'Es ist eine kleine Runde. Wenn ihr die Einladung bekommen habt, seid ihr uns wirklich wichtig.' },
     6: { title: 'Du hast alle gefunden!', text: 'Sechs Herzen, sechs kleine Notizen. Hut ab — und danke fürs Stöbern. Wir sehen uns am 18. Mai.' }
   };
 
