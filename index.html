@@ -7,7 +7,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Sophia &amp; Rene">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f5ede1'/%3E%3Ctext x='50%25' y='55%25' font-family='serif' font-size='120' fill='%23b8654a' text-anchor='middle' dominant-baseline='middle'%3E%E2%99%A1%3C/text%3E%3C/svg%3E">
+
+<!-- Favicon: Zwei verschlungene Eheringe in Hochzeitsfarben -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f5ede1' rx='8'/%3E%3Ccircle cx='25' cy='34' r='13' fill='none' stroke='%23a88159' stroke-width='3.5'/%3E%3Ccircle cx='40' cy='34' r='13' fill='none' stroke='%23b8654a' stroke-width='3.5'/%3E%3Ccircle cx='25' cy='21' r='1.5' fill='%23a88159'/%3E%3Ccircle cx='40' cy='21' r='1.5' fill='%23b8654a'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23f5ede1'/%3E%3Ccircle cx='72' cy='100' r='38' fill='none' stroke='%23a88159' stroke-width='10'/%3E%3Ccircle cx='112' cy='100' r='38' fill='none' stroke='%23b8654a' stroke-width='10'/%3E%3Ccircle cx='72' cy='62' r='4' fill='%23a88159'/%3E%3Ccircle cx='112' cy='62' r='4' fill='%23b8654a'/%3E%3C/svg%3E">
 <link rel="manifest" href='data:application/manifest+json,{"name":"Sophia %26 Rene","short_name":"S %26 R","start_url":".","display":"standalone","background_color":"%23f5ede1","theme_color":"%23b8654a","icons":[{"src":"data:image/svg+xml,%253Csvg xmlns%3D%2522http%3A//www.w3.org/2000/svg%2522 viewBox%3D%25220 0 192 192%2522%253E%253Crect width%3D%2522192%2522 height%3D%2522192%2522 fill%3D%2522%2523f5ede1%2522/%253E%253Ctext x%3D%252250%2525%2522 y%3D%252255%2525%2522 font-family%3D%2522serif%2522 font-size%3D%2522130%2522 fill%3D%2522%2523b8654a%2522 text-anchor%3D%2522middle%2522 dominant-baseline%3D%2522middle%2522%253E%E2%99%A1%253C/text%253E%253C/svg%253E","sizes":"192x192","type":"image/svg+xml"}]}'>
 <title>Sophia &amp; Rene — Unsere Hochzeit</title>
 
@@ -1581,6 +1584,8 @@ section.reveal {
       transform: none;
       margin-top: 2.5rem;
       display: block;
+      animation: fadeIn 1s 2.2s forwards;
+      text-align: center;
     }
 
     /* Layout-Grids einspaltig */
@@ -1798,7 +1803,7 @@ section.reveal {
   </div>
 
   <div class="ablauf-note">
-    <strong>Bitte beachten:</strong> Wir bitten euch, gerne schon ab <strong>14:15 Uhr</strong> vor Ort zu sein, damit es keine Verspätungen gibt — gerade die Parkplatzsuche in Mannheim kann etwas dauern.
+    <strong>Bitte beachten:</strong> Kommt gerne schon ab <strong>14:15 Uhr</strong> vor Ort, damit es keine Verspätungen gibt — gerade die Parkplatzsuche in Mannheim kann etwas dauern.
   </div>
 
   <div class="ornament">◈ ◈ ◈</div>
@@ -1829,10 +1834,9 @@ section.reveal {
       </div>
 
       <div class="parking-list">
-        <div class="parking-tip">
-          <span class="parking-tip-label">Geheimtipp</span>
+        <div class="parking-item">
           <span class="parking-name">Straßenparkplätze direkt im K7</span>
-          <span class="parking-meta">Beim Bürgerservice gibt es einige Stellplätze (Parkscheinautomat). Nur <strong>kurzer Fußweg</strong>, wenn frei, der bequemste Spot. Aber Zeit einplanen für die Suche</span>
+          <span class="parking-meta">Beim Bürgerservice und in den umliegenden Straßen gibt es einige Stellplätze (achtet darauf, ob ein Parkscheinautomat aufgestellt ist). Nur <strong>kurzer Fußweg</strong> — wenn frei, der bequemste Spot. Aber Zeit für die Suche einplanen.</span>
         </div>
         <div class="parking-item">
           <span class="parking-name">Tiefgarage H6</span>
@@ -1867,7 +1871,7 @@ section.reveal {
       </div>
 
       <p class="card-note">
-        Wir freuen uns auf einen entspannten Nachmittag mit euch, geplant ist ein gemütliches Beisammensein im Garten, das gegen Abend ausklingt.
+        Wir freuen uns auf einen entspannten Nachmittag mit euch. Geplant ist ein gemütliches Beisammensein im Garten, das gegen Abend ausklingt.
       </p>
     </div>
   </div>
@@ -1890,11 +1894,11 @@ section.reveal {
     <div class="dresscode-tips">
       <p style="margin-bottom: 1rem;">
         <strong style="font-style: normal; color: var(--terracotta-deep);">Was wir uns vorstellen:</strong>
-        Eine Stoffhose statt Jeans, gerne ein Hemd für die Männer. Sakko, Anzug oder Krawatte sind <em>nicht</em> nötig. Für die Frauen ein Kleid, ein Rock mit Bluse oder eine schöne Stoffhose mit Oberteil, alles, worin ihr euch wohlfühlt und festlicher als Alltag ist.
+        Für die Männer eine Stoffhose statt Jeans und gerne ein Hemd. Sakko, Anzug oder Krawatte sind <em>nicht</em> nötig. Für die Frauen ein Kleid, ein Rock mit Bluse oder eine schöne Stoffhose mit Oberteil — alles, worin ihr euch wohlfühlt und das festlicher als Alltag ist.
       </p>
       <p>
         <strong style="font-style: normal; color: var(--terracotta-deep);">Bitte verzichtet auf:</strong>
-        Jeans, Sneaker im Sportlook, sowie auf die Farben <em>Weiß</em> (außer als Hemd bei den Männern), <em>Schwarz</em> und <em>helles Rosa</em>.
+        Jeans, Sneaker im Sportlook sowie auf die Farben <em>Weiß</em> (außer als Hemd bei den Männern), <em>Schwarz</em> und <em>helles Rosa</em>.
       </p>
     </div>
   </div>
@@ -2435,10 +2439,10 @@ section.reveal {
   // ═══════════ VERSTECKTE LIEBESBRIEFE ═══════════
   const loveNotes = {
     1: { title: 'Hallo!', text: 'Schön, dass du dir die Zeit nimmst, hier rumzustöbern. Wir freuen uns wirklich, dass du am 18. Mai dabei sein kannst.' },
-    2: { title: 'Kleine Info', text: 'Falls du dich fragst: Ja, wir sind nervös. Aber vor allem: Wir freuen uns riesig.' },
-    3: { title: 'Fun Fact', text: 'Die Idee zu dieser Webseite kam an einem ganz normalen Sonntagabend auf der Couch. Manchmal entstehen die besten Sachen einfach nebenbei.' },
-    4: { title: 'Danke', text: 'Eine Hochzeit zu planen ist anstrengender als gedacht. Dass ihr alle so geduldig mit uns seid, bedeutet uns viel.' },
-    5: { title: 'Gut zu wissen', text: 'Falls du dich am Tag selbst verlaufen solltest: Auf der Seite stehen alle Adressen. Und unsere Nummern sowieso.' },
+    2: { title: 'Übrigens', text: 'Falls dir die Seite gefällt: Sophia hat sich da ordentlich Mühe gegeben. Rene hat... moralisch unterstützt.' },
+    3: { title: 'Kleiner Tipp', text: 'Gute Schuhe lohnen sich. Beim Standesamt geht es zwar fix, aber abends in Hemsbach wird auch gestanden, gegessen und vielleicht etwas gewackelt.' },
+    4: { title: 'Ehrlich gesagt', text: 'Wir hätten nie gedacht, wie viele Entscheidungen man bei einer Hochzeit treffen muss. Welche Servietten? Welche Musik? Wer sitzt neben wem? Naja — bald ist es geschafft.' },
+    5: { title: 'Falls ihr euch fragt', text: 'Ja, es gibt genug zu essen. Nein, ihr müsst nichts mitbringen. Und ja, wir freuen uns trotzdem über jeden Salat, der angekündigt wird.' },
     6: { title: 'Du hast alle gefunden!', text: 'Sechs Herzen, sechs kleine Notizen. Hut ab — und danke fürs Stöbern. Wir sehen uns am 18. Mai.' }
   };
 
