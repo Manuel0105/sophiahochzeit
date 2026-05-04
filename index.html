@@ -180,7 +180,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 4rem auto;
+    margin: 2rem auto 1rem;
     color: var(--gold);
     font-size: 0.8rem;
     letter-spacing: 0.3em;
@@ -255,8 +255,14 @@ section {
     z-index: 2;
 }
 
+/* Konsistenter Abstand zwischen Sections */
+section + section,
+section.reveal {
+    padding-top: 1.5rem;
+}
+
 #ablauf {
-    padding-top: 3rem;
+    padding-top: 2rem;
 }
 
   .section-label {
@@ -477,25 +483,33 @@ section {
   .rsvp-field label {
     display: block;
     font-family: 'Italiana', serif;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 0.3em;
     color: var(--terracotta);
     text-transform: uppercase;
     margin-bottom: 0.5rem;
+    font-weight: 600;
   }
 
   .rsvp-field input,
   .rsvp-field textarea,
   .rsvp-field select {
     width: 100%;
-    padding: 0.8rem 1rem;
-    background: rgba(255, 255, 255, 0.6);
+    padding: 0.85rem 1rem;
+    background: rgba(255, 255, 255, 0.7);
     border: 1px solid rgba(168, 129, 89, 0.4);
     border-radius: 3px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    font-weight: 500;
     color: var(--ink);
     transition: all 0.3s;
+  }
+
+  .rsvp-field input::placeholder,
+  .rsvp-field textarea::placeholder {
+    color: rgba(92, 74, 62, 0.55);
+    font-weight: 400;
   }
 
   .rsvp-field input:focus,
@@ -532,15 +546,16 @@ section {
 
   .rsvp-radio label {
     display: block;
-    padding: 0.9rem 1rem;
-    background: rgba(255, 255, 255, 0.5);
+    padding: 0.95rem 1rem;
+    background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(168, 129, 89, 0.4);
     border-radius: 3px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    font-weight: 500;
     letter-spacing: normal;
     text-transform: none;
     color: var(--ink);
@@ -551,6 +566,7 @@ section {
     background: var(--terracotta);
     color: var(--cream);
     border-color: var(--terracotta);
+    font-weight: 600;
   }
 
   .rsvp-button {
@@ -747,20 +763,20 @@ section {
   /* ═══════════ VERSTECKTE LIEBESBRIEFE ═══════════ */
   .hidden-heart {
     position: absolute;
-    color: var(--rose);
-    opacity: 0.6;
+    color: var(--terracotta);
+    opacity: 0.9;
     cursor: pointer;
-    font-size: 1.8rem;
+    font-size: 2rem;
     transition: opacity 0.4s, transform 0.3s, color 0.3s;
     z-index: 5;
     user-select: none;
     animation: heartPulse 3.5s ease-in-out infinite;
-    text-shadow: 0 0 12px rgba(200, 152, 144, 0.6);
+    text-shadow: 0 0 14px rgba(184, 101, 74, 0.5);
   }
 
   @keyframes heartPulse {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50%      { opacity: 0.85; transform: scale(1.15); }
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.15); }
   }
 
   .hidden-heart:hover {
@@ -1546,14 +1562,34 @@ section {
 
   /* ═══════════ RESPONSIVE ═══════════ */
   @media (max-width: 768px) {
-    body { font-size: 17px; }
-    section { padding: 4rem 1.5rem; }
-    nav ul { gap: 1.2rem; }
-    nav a { font-size: 0.65rem; letter-spacing: 0.2em; }
+    body { font-size: 18px; line-height: 1.65; }
+    section { padding: 0 1.2rem; }
+    nav ul { gap: 1rem; }
+    nav a { font-size: 0.6rem; letter-spacing: 0.15em; }
+
+    /* Hero auf Mobile entzerren */
+    .hero { padding: 3rem 1.5rem 5rem; min-height: auto; }
+    .hero-eyebrow { margin-bottom: 2rem; font-size: 0.7rem; letter-spacing: 0.3em; }
+    .hero-eyebrow::before, .hero-eyebrow::after { margin: 0 0.6rem; }
+    .hero-tagline { font-size: 1.1rem; margin: 1.5rem 0 2rem; }
+    .hero-date { font-size: 0.95rem; padding: 0.8rem 1.5rem; }
+
+    /* "Mehr erfahren" Pfeil – auf Mobile in normalen Fluss bringen */
+    .hero-scroll {
+      position: static;
+      transform: none;
+      margin-top: 2.5rem;
+      display: block;
+    }
+
+    /* Layout-Grids einspaltig */
     .location-grid { grid-template-columns: 1fr; }
     .ablauf-grid { flex-direction: column; gap: 1rem; }
     .ablauf-arrow { transform: rotate(90deg); font-size: 2rem; }
     .info-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+
+    /* Story Timeline */
     .story-timeline::before { left: 12px; }
     .story-item { width: 100%; padding: 1rem 1rem 1rem 2.5rem; }
     .story-item:nth-child(odd),
@@ -1568,10 +1604,45 @@ section {
       left: 4px;
       right: auto;
     }
-    .rsvp { padding: 2rem 1.5rem; }
-    .countdown { gap: 0.6rem; }
-    .countdown-unit { min-width: 60px; padding: 0.7rem 0.4rem; }
-    .countdown-number { font-size: 1.6rem; }
+
+    /* RSVP – kräftigere Schrift + bessere Lesbarkeit */
+    .rsvp { padding: 2rem 1.2rem; }
+    .rsvp-intro { font-size: 1.05rem; line-height: 1.6; font-weight: 500; }
+    .rsvp-field label {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+    }
+    .rsvp-field input,
+    .rsvp-field textarea,
+    .rsvp-field select {
+      font-size: 1.05rem;
+      font-weight: 500;
+      padding: 0.95rem 1rem;
+    }
+    .rsvp-radio label {
+      font-size: 1.05rem;
+      font-weight: 500;
+      padding: 1rem;
+    }
+    .rsvp-button {
+      font-size: 0.9rem;
+      letter-spacing: 0.25em;
+      padding: 1.1rem 2rem;
+      font-weight: 600;
+    }
+
+    /* Section-Titel mobil etwas kleiner */
+    .section-title { font-size: clamp(2rem, 8vw, 2.8rem); }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.3em; }
+
+    /* Countdown */
+    .countdown { gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+    .countdown-unit { min-width: 65px; padding: 0.7rem 0.4rem; }
+    .countdown-number { font-size: 1.5rem; }
+    .countdown-label { font-size: 0.6rem; }
+
+    /* Schwebebuttons */
     .music-toggle, .mode-toggle {
       width: 42px;
       height: 42px;
@@ -1579,6 +1650,26 @@ section {
     }
     .music-toggle { right: 1rem; }
     .mode-toggle { right: 4rem; }
+
+    /* Ornamente schmaler */
+    .ornament { margin: 1.5rem auto; }
+    .ornament::before, .ornament::after {
+      width: 2.5rem;
+      margin: 0 0.8rem;
+    }
+
+    /* Liebesbriefe mobil etwas kleiner */
+    .hidden-heart { font-size: 1.6rem; }
+
+    /* Wetter-Widget mobil */
+    .weather-widget { padding: 1rem 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    nav ul { gap: 0.7rem; }
+    nav a { font-size: 0.55rem; letter-spacing: 0.1em; }
+    .countdown-unit { min-width: 55px; }
+    .countdown-number { font-size: 1.3rem; }
   }
 </style>
 </head>
@@ -1591,7 +1682,7 @@ section {
     <li><a href="#location">Location</a></li>
     <li><a href="#dresscode">Dresscode</a></li>
     <li><a href="#wichtiges">Hinweise</a></li>
-    <li><a href="#rsvp">R.S.V.P.</a></li>
+    <li><a href="#rsvp">Rückmeldung</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
 </nav>
@@ -1828,7 +1919,7 @@ section {
   <div class="ornament">◈ ◈ ◈</div>
 </section>
 
-<!-- ═══════════════════ R.S.V.P. ═══════════════════ -->
+<!-- ═══════════════════ RÜCKMELDUNG ═══════════════════ -->
 <section id="rsvp" class="reveal">
   <div class="section-label">Rückmeldung</div>
   <h2 class="section-title">Sagt uns <em>Bescheid</em></h2>
@@ -2113,128 +2204,53 @@ section {
     modeToggle.textContent = document.body.classList.contains('evening') ? '☾' : '☀';
   });
 
-  // ═══════════ MUSIK-TOGGLE (sanfter Glocken-Akkord per Web Audio) ═══════════
+  // ═══════════ MUSIK-TOGGLE (Hochzeitsmarsch MP3) ═══════════
+  // Erwartet eine Datei "hochzeitsmarsch.mp3" im selben Ordner wie diese HTML.
   const musicToggle = document.getElementById('musicToggle');
-  let audioCtx = null;
+  const weddingMusic = new Audio('hochzeitsmarsch.mp3');
+  weddingMusic.loop = true;
+  weddingMusic.volume = 0.5;
   let isPlaying = false;
-  let musicTimeout = null;
-  let melodyStep = 0;
+  // audioCtx wird auch vom Evening-Mode-Ambient-Sound benutzt
+  let audioCtx = null;
 
-  // Eigene fröhliche Glockenspiel-Melodie in C-Dur
-  // Verspielt, leicht und freundlich
-  const melody = [
-    // ════ Phrase 1: Aufsteigende fröhliche Eröffnung
-    { note: 523.25, dur: 0.30 }, // C5
-    { note: 659.25, dur: 0.30 }, // E5
-    { note: 783.99, dur: 0.30 }, // G5
-    { note: 1046.50, dur: 0.45 }, // C6 — heller Klang
-    { note: 783.99, dur: 0.30 }, // G5
-    { note: 1046.50, dur: 0.60 }, // C6
-    { note: 0,       dur: 0.20 }, // kleine Atempause
-
-    // ════ Phrase 2: Tanzende Antwort
-    { note: 880.00, dur: 0.30 }, // A5
-    { note: 783.99, dur: 0.30 }, // G5
-    { note: 659.25, dur: 0.30 }, // E5
-    { note: 783.99, dur: 0.45 }, // G5
-    { note: 659.25, dur: 0.30 }, // E5
-    { note: 523.25, dur: 0.60 }, // C5
-    { note: 0,       dur: 0.20 },
-
-    // ════ Phrase 3: Verspielte Wendung
-    { note: 587.33, dur: 0.22 }, // D5
-    { note: 659.25, dur: 0.22 }, // E5
-    { note: 698.46, dur: 0.22 }, // F5
-    { note: 783.99, dur: 0.45 }, // G5
-    { note: 880.00, dur: 0.30 }, // A5
-    { note: 783.99, dur: 0.30 }, // G5
-    { note: 659.25, dur: 0.45 }, // E5
-    { note: 0,       dur: 0.18 },
-
-    // ════ Phrase 4: Glücklicher Abschluss
-    { note: 1046.50, dur: 0.22 }, // C6
-    { note: 880.00, dur: 0.22 }, // A5
-    { note: 783.99, dur: 0.22 }, // G5
-    { note: 659.25, dur: 0.22 }, // E5
-    { note: 783.99, dur: 0.30 }, // G5
-    { note: 523.25, dur: 0.75 }, // C5 — Schluss
-    { note: 0,       dur: 0.50 },
-  ];
-
-  function playNote(freq, duration) {
-    if (!audioCtx) return;
-    if (freq === 0) return; // Pause
-
-    // Glockenspiel: Hauptton mit schnellem Anschlag und langem Ausklang
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = 'sine';
-    osc.frequency.value = freq;
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    // Oktave drüber für glockigen Glanz
-    const osc2 = audioCtx.createOscillator();
-    const gain2 = audioCtx.createGain();
-    osc2.type = 'sine';
-    osc2.frequency.value = freq * 2;
-    osc2.connect(gain2);
-    gain2.connect(audioCtx.destination);
-
-    // Quinte für Wärme
-    const osc3 = audioCtx.createOscillator();
-    const gain3 = audioCtx.createGain();
-    osc3.type = 'sine';
-    osc3.frequency.value = freq * 3;
-    osc3.connect(gain3);
-    gain3.connect(audioCtx.destination);
-
-    const now = audioCtx.currentTime;
-    const sustain = duration + 0.8; // langer Ausklang wie echtes Glockenspiel
-
-    // Sehr schneller Anschlag, langsamer Ausklang
-    gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.10, now + 0.005);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + sustain);
-
-    gain2.gain.setValueAtTime(0, now);
-    gain2.gain.linearRampToValueAtTime(0.05, now + 0.005);
-    gain2.gain.exponentialRampToValueAtTime(0.001, now + sustain * 0.7);
-
-    gain3.gain.setValueAtTime(0, now);
-    gain3.gain.linearRampToValueAtTime(0.012, now + 0.005);
-    gain3.gain.exponentialRampToValueAtTime(0.001, now + sustain * 0.5);
-
-    osc.start(now);
-    osc.stop(now + sustain);
-    osc2.start(now);
-    osc2.stop(now + sustain * 0.7);
-    osc3.start(now);
-    osc3.stop(now + sustain * 0.5);
-  }
-
-  function playMelody() {
-    if (!isPlaying) return;
-    const step = melody[melodyStep];
-    playNote(step.note, step.dur + 0.15);
-    melodyStep = (melodyStep + 1) % melody.length;
-    musicTimeout = setTimeout(playMelody, step.dur * 1000);
+  // Sanftes Ein-/Ausblenden
+  function fadeAudio(audio, targetVolume, duration = 600) {
+    const startVolume = audio.volume;
+    const startTime = performance.now();
+    function step(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      audio.volume = startVolume + (targetVolume - startVolume) * progress;
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else if (targetVolume === 0) {
+        audio.pause();
+      }
+    }
+    requestAnimationFrame(step);
   }
 
   musicToggle.addEventListener('click', () => {
-    if (!audioCtx) {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
     if (isPlaying) {
-      clearTimeout(musicTimeout);
+      fadeAudio(weddingMusic, 0);
       musicToggle.classList.remove('playing');
       isPlaying = false;
     } else {
-      isPlaying = true;
-      melodyStep = 0;
-      playMelody();
-      musicToggle.classList.add('playing');
+      weddingMusic.volume = 0;
+      weddingMusic.play().then(() => {
+        fadeAudio(weddingMusic, 0.5);
+        musicToggle.classList.add('playing');
+        isPlaying = true;
+      }).catch(err => {
+        console.error('Audio konnte nicht abgespielt werden:', err);
+        alert('Die Musik-Datei konnte nicht geladen werden. Stellt sicher, dass "hochzeitsmarsch.mp3" im selben Ordner wie die HTML-Datei liegt.');
+      });
     }
+  });
+
+  weddingMusic.addEventListener('ended', () => {
+    musicToggle.classList.remove('playing');
+    isPlaying = false;
   });
 
   // ═══════════ R.S.V.P. FORMULAR ═══════════
@@ -2320,13 +2336,18 @@ section {
         'METHOD:PUBLISH',
         'BEGIN:VEVENT',
         'UID:hochzeit-sophia-rene-2026@sophia-rene.de',
-        'DTSTAMP:20260518T123000Z',
-        'DTSTART:20260518T123000Z',
-        'DTEND:20260518T130000Z',
-        'SUMMARY:Hochzeit Sophia & Rene',
-        'DESCRIPTION:Trauung im Standesamt Mannheim\\, danach Grillen in Hemsbach',
+        'DTSTAMP:20260518T120000Z',
+        'DTSTART:20260518T120000Z',
+        'DTEND:20260518T170000Z',
+        'SUMMARY:Hochzeit Sophia & Rene 💍',
+        'DESCRIPTION:Trauung um 14:30 Uhr im Standesamt Mannheim\\, danach gemeinsames Grillen in Hemsbach. Wir freuen uns auf euch! ♡',
         'LOCATION:Standesamt Mannheim\\, K7 2\\, 68159 Mannheim',
         'STATUS:CONFIRMED',
+        'BEGIN:VALARM',
+        'TRIGGER:-P1D',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:Morgen ist Sophia und Renes Hochzeit!',
+        'END:VALARM',
         'END:VEVENT',
         'END:VCALENDAR'
       ].join('\r\n');
@@ -2412,12 +2433,12 @@ section {
 
   // ═══════════ VERSTECKTE LIEBESBRIEFE ═══════════
   const loveNotes = {
-    1: { title: 'Ein kleiner Gedanke', text: 'Liebe ist nicht nur ein Gefühl — sie ist eine Entscheidung, die wir jeden Tag aufs Neue treffen. Heute besonders ♡' },
-    2: { title: 'Für unsere Gäste', text: 'Dass ihr heute hier seid, bedeutet uns mehr, als Worte sagen können. Danke, dass ihr Teil unserer Geschichte seid.' },
-    3: { title: 'Ein Versprechen', text: 'Das Beste an unserer Hochzeit ist nicht der eine Tag — sondern, dass wir uns heute füreinander entscheiden, für immer.' },
-    4: { title: 'Kleine Weisheit', text: 'Die schönsten Momente sind nicht die, die man plant — sondern die, die einfach passieren. Wie zwei Menschen, die sich finden.' },
-    5: { title: 'Aus dem Herzen', text: 'Es gibt Tage, an denen man weiß: Ab hier wird alles anders. Heute ist so ein Tag — und wir sind so glücklich, dass ihr ihn mit uns teilt.' },
-    6: { title: 'Ein letztes Geheimnis', text: 'Wenn ihr das hier lest, habt ihr alle versteckten Herzen gefunden. Wir hoffen, ihr lacht so viel mit uns wie wir mit euch ♡' }
+    1: { title: 'Hallo!', text: 'Schön, dass du dir die Zeit nimmst, hier rumzustöbern. Wir freuen uns wirklich, dass du am 18. Mai dabei sein kannst.' },
+    2: { title: 'Kleine Info', text: 'Falls du dich fragst: Ja, wir sind nervös. Aber vor allem: Wir freuen uns riesig.' },
+    3: { title: 'Fun Fact', text: 'Die Idee zu dieser Webseite kam an einem ganz normalen Sonntagabend auf der Couch. Manchmal entstehen die besten Sachen einfach nebenbei.' },
+    4: { title: 'Danke', text: 'Eine Hochzeit zu planen ist anstrengender als gedacht. Dass ihr alle so geduldig mit uns seid, bedeutet uns viel.' },
+    5: { title: 'Gut zu wissen', text: 'Falls du dich am Tag selbst verlaufen solltest: Auf der Seite stehen alle Adressen. Und unsere Nummern sowieso.' },
+    6: { title: 'Du hast alle gefunden!', text: 'Sechs Herzen, sechs kleine Notizen. Hut ab — und danke fürs Stöbern. Wir sehen uns am 18. Mai.' }
   };
 
   document.querySelectorAll('.hidden-heart').forEach(heart => {
